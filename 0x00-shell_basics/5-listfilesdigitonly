@@ -1,2 +1,2 @@
 #!/bin/bash
-ls *[[:digit:]]* -al
+ls *-al[[:digit:]]* 
