@@ -1,2 +1,2 @@
 #!/bin/bash
-ls . [0-9]* R*.md
+ls -al [0-9]* R*.md
