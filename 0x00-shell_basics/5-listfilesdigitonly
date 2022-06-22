@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -al [[:digit:]]* 
+ls -al [0-9]* 
