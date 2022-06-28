@@ -1,2 +1,2 @@
 #!/bin/bash
-echo a{a..z} b{a..z} | tr " " "\n" | grep -v "oo"
+echo a{a..z} b{a..z} c{a..z} d{a..z} e{a..z} f{a..z} g{a..z} h{a..z} i{a..z} j{a..z} k{a..z} l{a..z} m{a..z} n{a..z} p{a..z} q{a..z} r{a..z} s{a..z} t{a..z} u{a..z} v{a..z} w{a..z} x{a..z} y{a..z} z{a..z} | tr " " "\n" | grep -v "oo"
