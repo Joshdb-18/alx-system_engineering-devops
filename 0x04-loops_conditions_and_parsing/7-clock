@@ -1,23 +1,15 @@
 #!/usr/bin/env bash
 # This displays hours from 0 to 12, minutes from 1 to 59
 
-i=0
-j=1
-while [ $i -lt 61 ] 
+hrs=0
+while [ $hrs -lt 13 ]
 do
-	if [ $i = 0 ]
-	then
-		echo "Hour: 0"
-	elif [ $i = 60 ]
-	then
-		echo "Hour: 1"
-		while [ $j -lt 10 ]
-		do
-			echo $j
-			(( j+=1 ))
-		done
-	else
-		echo $i
-	fi
-	(( i+=1 ))
+    echo "Hour: $hrs"
+    min=1
+    while [ $min -lt 60 ]
+    do
+        echo $min
+	((min+=1))
+    done
+    ((hrs+=1))
 done
