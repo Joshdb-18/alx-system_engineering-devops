@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Script that configures a new Ubuntu machine to work with nginx
 
-apt-get update
-apt-get install -y nginx
-
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-service nginx restart
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo service nginx restart
