@@ -14,5 +14,5 @@ listen load-balance
         option forwardfor
         server 77097-web-01 54.146.68.43 check port 80
         server 77097-web-02 18.233.65.183 check port 80
-" >> sudo /etc/haproxy/haproxy.cfg
+" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
