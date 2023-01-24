@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Usage: ./1-world_wide_web <domain> <subdomain>
 # Configures domain so that subdomain poinst to load balancer IP
 
 domain_information () {
