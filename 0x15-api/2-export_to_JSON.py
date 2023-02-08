@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Exports data to JSON format"""
 import json
-import sys
 import requests
+import sys
 
 if __name__ == '__main__':
     user_id = sys.argv[1]
