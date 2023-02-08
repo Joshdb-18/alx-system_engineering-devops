@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Returns the information about an employee's TODO list progress"""
-import sys
 import requests
+import sys
 
 if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/"
