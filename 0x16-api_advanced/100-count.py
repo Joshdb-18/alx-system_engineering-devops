@@ -5,46 +5,44 @@
 import requests
 
 
-def count_words(subreddit, word_list, after=None, counts={}):
-    """ A function that queries the Reddit API parses the title of
+def count_words(subreddit, word_list, after=None, counts=None):
+    """A function that queries the Reddit API parses the title of
     all hot articles, and prints a sorted count of given keywords
     (case-insensitive, delimited by spaces.
     Javascript should count as javascript, but java should not).
     If no posts match or the subreddit is invalid, it prints nothing.
     """
+    if counts is None:
+        counts = {}
 
-    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(subreddit)
-    headers = {"User-Agent": "reddit-client"}
-
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100"
     if after:
         url += f"&after={after}"
 
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    headers = {"User-Agent": "reddit-client"}
+    response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
-        return None
+        return
 
-    data = response.json()["data"]
-    articles = data["children"]
+    articles = response.json()["data"]["children"]
     last_article = articles[-1]["data"] if articles else None
+    current_counts = counts.copy()
 
     for article in articles:
         title = article["data"]["title"].lower()
-        for word in word_list:
-            word = word.lower()
-            if (
-                f" {word} " in f" {title} "
-                or f" {word}," in f" {title} "
-                or f" {word}." in f" {title} "
-                or f" {word}!" in f" {title} "
-                or f" {word}?" in f" {title} "
-            ):
-                counts[word] = counts.get(word, 0) + 1
+        title_words = [word.strip("!.,_") for word in title.split()]
+
+        for keyword in word_list:
+            if keyword.lower() in title_words:
+                current_counts[keyword.lower()] = (
+                    current_counts.get(keyword.lower(), 0) + 1
+                )
 
     if last_article:
-        return count_words(subreddit, word_list, last_article["name"], counts)
+        return count_words(subreddit, word_list,
+                           last_article["name"], current_counts)
 
-    sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
-
-    for word, count in sorted_counts:
-        print(f"{word}: {count}")
+    sorted_counts = sorted(current_counts.items(), key=lambda x: (-x[1], x[0]))
+    for keyword, count in sorted_counts:
+        print(f"{keyword}: {count}")
