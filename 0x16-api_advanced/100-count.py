@@ -22,8 +22,7 @@ def count_words(subreddit, word_list, after=None, counts={}):
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:
-        print(f"Error: Invalid subreddit or no posts found.")
-        return
+        return None
 
     data = response.json()["data"]
     articles = data["children"]
