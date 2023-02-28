@@ -25,7 +25,7 @@ def count_words(subreddit, word_list, after='', word_dict={}):
                 print('{}: {}'.format(word[0], word[1]))
         return None
 
-    url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     header = {'user-agent': 'redquery'}
     parameters = {'limit': 100, 'after': after}
     response = requests.get(url, headers=header, params=parameters,
