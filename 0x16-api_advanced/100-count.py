@@ -13,7 +13,7 @@ def count_words(subreddit, word_list, after=None, counts={}):
     If no posts match or the subreddit is invalid, it prints nothing.
     """
 
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100"
+    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(subreddit)
     headers = {"User-Agent": "reddit-client"}
 
     if after:
