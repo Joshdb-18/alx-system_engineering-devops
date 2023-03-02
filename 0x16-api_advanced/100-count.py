@@ -2,6 +2,9 @@
 """ Queries the Reddit API"""
 
 
+import requests
+
+
 def count_words(subreddit, word_list, word_dict=None, after=None):
     """ A function that queries the Reddit API recursively, parses the title of
     all hot articles, and prints a sorted count of given keywords
@@ -9,7 +12,6 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
     Javascript should count as javascript, but java should not).
     If no posts match or the subreddit is invalid, it prints nothing.
     """
-    import requests
 
     if not word_dict:
         word_dict = {}
@@ -24,7 +26,7 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
 
     if response.status_code == 404:
         return
-    elif response.status_code != 200:
+    if response.status_code != 200:
         # raise Exception(f'Error {response.status_code}')
         return None
 
