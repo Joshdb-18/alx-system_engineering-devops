@@ -2,39 +2,41 @@
 """ Queries the Reddit API"""
 
 
+import requests
+
+
 def count_words(subreddit, word_list, word_dict=None, after=None):
-    """ A function that queries the Reddit API recursively, parses the title of
+    """A function that queries the Reddit API recursively, parses the title of
     all hot articles, and prints a sorted count of given keywords
     (case-insensitive, delimited by spaces.
     Javascript should count as javascript, but java should not).
     If no posts match or the subreddit is invalid, it prints nothing.
     """
-    import requests
 
     if not word_dict:
         word_dict = {}
 
     if not after:
-        url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
+        url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     else:
-        url = 'https://www.reddit.com/r/{}/hot/.json?after={}'.format(
-                subreddit, after)
+        url = "https://www.reddit.com/r/{}/hot/.json?after={after}".format(
+                subreddit)
 
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    response = requests.get(url, headers=headers)
+    headers = {"User-Agent": "Mozilla/5.0"}
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code == 404:
         return
-    elif response.status_code != 200:
+    if response.status_code != 200:
         # raise Exception(f'Error {response.status_code}')
         return None
 
     data = response.json()
-    children = data['data']['children']
-    after = data['data']['after']
+    children = data["data"]["children"]
+    after = data["data"]["after"]
 
     for child in children:
-        title = child['data']['title'].lower()
+        title = child["data"]["title"].lower()
 
         for word in word_list:
             if word.lower() in title:
@@ -47,13 +49,6 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
         count_words(subreddit, word_list, word_dict, after)
     else:
         sorted_words = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
-        print_sorted_words(sorted_words, 0)
 
-
-def print_sorted_words(sorted_words, index):
-    if index == len(sorted_words):
-        return
-
-    word, count = sorted_words[index]
-    print("{}: {}".format(word, count))
-    print_sorted_words(sorted_words, index+1)
+        for word, count in sorted_words:
+            print("{}: {}").format(word, count)
