@@ -6,7 +6,7 @@ import requests
 
 
 def count_words(subreddit, word_list, word_dict=None, after=None):
-    """ A function that queries the Reddit API recursively, parses the title of
+    """A function that queries the Reddit API recursively, parses the title of
     all hot articles, and prints a sorted count of given keywords
     (case-insensitive, delimited by spaces.
     Javascript should count as javascript, but java should not).
@@ -17,11 +17,11 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
         word_dict = {}
 
     if not after:
-        url = f'https://www.reddit.com/r/{subreddit}/hot/.json'
+        url = f"https://www.reddit.com/r/{subreddit}/hot/.json"
     else:
-        url = f'https://www.reddit.com/r/{subreddit}/hot/.json?after={after}'
+        url = f"https://www.reddit.com/r/{subreddit}/hot/.json?after={after}"
 
-    headers = {'User-Agent': 'Mozilla/5.0'}
+    headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
 
     if response.status_code == 404:
@@ -31,11 +31,11 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
         return None
 
     data = response.json()
-    children = data['data']['children']
-    after = data['data']['after']
+    children = data["data"]["children"]
+    after = data["data"]["after"]
 
     for child in children:
-        title = child['data']['title'].lower()
+        title = child["data"]["title"].lower()
 
         for word in word_list:
             if word.lower() in title:
@@ -50,4 +50,4 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
         sorted_words = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
 
         for word, count in sorted_words:
-            print(f'{word}: {count}')
+            print(f"{word}: {count}")
