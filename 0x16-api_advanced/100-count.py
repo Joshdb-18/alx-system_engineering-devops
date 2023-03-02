@@ -33,27 +33,35 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
     children = data['data']['children']
     after = data['data']['after']
 
-    for child in children:
+    def search_child(child, word_list, word_dict):
         title = child['data']['title'].lower()
 
-        for word in word_list:
+        def search_word(word, title, word_dict):
             if word.lower() in title:
                 if word.lower() not in word_dict:
                     word_dict[word.lower()] = 1
                 else:
                     word_dict[word.lower()] += 1
 
+        for word in word_list:
+            search_word(word, title, word_dict)
+
+    def search_children(children, word_list, word_dict):
+        if children:
+            search_child(children[0], word_list, word_dict)
+            search_children(children[1:], word_list, word_dict)
+
+    search_children(children, word_list, word_dict)
+
     if after:
         count_words(subreddit, word_list, word_dict, after)
     else:
         sorted_words = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
-        print_sorted_words(sorted_words, 0)
 
+        def print_word_count(sorted_words):
+            if sorted_words:
+                word, count = sorted_words[0]
+                print('{}: {}'.format(word, count))
+                print_word_count(sorted_words[1:])
 
-def print_sorted_words(sorted_words, index):
-    if index == len(sorted_words):
-        return
-
-    word, count = sorted_words[index]
-    print("{}: {}".format(word, count))
-    print_sorted_words(sorted_words, index+1)
+        print_word_count(sorted_words)

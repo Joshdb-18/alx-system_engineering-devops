@@ -24,9 +24,9 @@ def check_recursion():
     sys.stderr = stderr              # in its posts
 
     if len(trace.getvalue()) > 0:
-        print("function is recursive", end="")
+        print("function is recursive")
     else:
-        print("function is not recursive", end="")
+        print("function is not recursive")
 
 
 def trace_calls(frame, event, arg):
