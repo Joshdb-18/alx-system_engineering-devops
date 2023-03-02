@@ -17,12 +17,13 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
         word_dict = {}
 
     if not after:
-        url = f"https://www.reddit.com/r/{subreddit}/hot/.json"
+        url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     else:
-        url = f"https://www.reddit.com/r/{subreddit}/hot/.json?after={after}"
+        url = "https://www.reddit.com/r/{}/hot/.json?after={after}"
+        .format(subreddit)
 
     headers = {"User-Agent": "Mozilla/5.0"}
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code == 404:
         return
@@ -50,4 +51,4 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
         sorted_words = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
 
         for word, count in sorted_words:
-            print(f"{word}: {count}")
+            print("{}: {}").format(word, count)
