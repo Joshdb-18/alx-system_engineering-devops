@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+""" Module for a function that queries the Reddit API recursively."""
+
+
 import requests
+
 
 def count_words(subreddit, word_list, after='', word_dict=None):
     """ A function that queries the Reddit API recursively, parses the title of
@@ -41,4 +46,3 @@ def count_words(subreddit, word_list, after='', word_dict=None):
             word_dict[word] += lower.count(word)
 
     count_words(subreddit, word_list, aft, word_dict)
-
