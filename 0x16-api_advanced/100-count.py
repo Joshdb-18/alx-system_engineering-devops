@@ -19,8 +19,8 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
     if not after:
         url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     else:
-        url = "https://www.reddit.com/r/{}/hot/.json?after={after}"
-        .format(subreddit)
+        url = "https://www.reddit.com/r/{}/hot/.json?after={after}".format(
+                subreddit)
 
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers, allow_redirects=False)
