@@ -27,7 +27,8 @@ def count_words(subreddit, word_list, word_dict=None, after=None):
     if response.status_code == 404:
         return
     elif response.status_code != 200:
-        raise Exception(f'Error {response.status_code}')
+        # raise Exception(f'Error {response.status_code}')
+        return None
 
     data = response.json()
     children = data['data']['children']
