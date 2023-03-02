@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""100-count.py"""
+""" Queries the Reddit API"""
 
 
 import requests
