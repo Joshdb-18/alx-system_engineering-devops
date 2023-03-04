@@ -19,8 +19,8 @@ Root cause: Failed installation of Nginx on the web server due to a missing depe
 - 12:30 PM: The software development team swooped in like a superhero team to fix the issue and save the day.
 - 1:00 PM: The web server was finally back online, and Bob was left feeling a little embarrassed.
 
-### This is Bob when the issue was resolved :)
-![Bob](https://www.google.com/imgres?imgurl=https%3A%2F%2Flive.staticflickr.com%2F8517%2F8367493679_8a16c9419a_b.jpg&imgrefurl=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Ftbaatar%2F8367493679&tbnid=sE93TyM-_4gatM&vet=12ahUKEwiujqKNncL9AhXVTaQEHapfDkAQMygDegQIARA_..i&docid=jt0WT60jNRwBrM&w=1024&h=683&itg=1&q=embarrased%20programmer%20&ved=2ahUKEwiujqKNncL9AhXVTaQEHapfDkAQMygDegQIARA_)
+### This is Bob after the issue was resolved :)
+![Bob](https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F623446482%2Fphoto%2Fboss-scolding-an-employee.jpg%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3DtnXntpc2fPBB3UHWHKpBaxbQR5Ce1sUoq7YdcDnddxE%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fembarrassed-man-computer&tbnid=a2aDURDTRJW9cM&vet=12ahUKEwi888vensL9AhX-licCHTysD4MQMygjegUIARCrAg..i&docid=14icPX6xHEQoQM&w=612&h=408&q=embarrassed%20man%20sitting%20in%20from%20of%20a%20computer&ved=2ahUKEwi888vensL9AhX-licCHTysD4MQMygjegUIARCrAg)
 
 ## Root cause and resolution
 
