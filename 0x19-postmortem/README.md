@@ -20,7 +20,7 @@ Root cause: Failed installation of Nginx on the web server due to a missing depe
 - 1:00 PM: The web server was finally back online, and Bob was left feeling a little embarrassed.
 
 ### This is Bob after the issue was resolved :)
-![Bob](https://www.google.com/imgres?imgurl=https%3A%2F%2Fdigitaltrafficace.com%2Fwp-content%2Fuploads%2F2018%2F06%2Fembarrassed-Depositphotos_800x531.jpg&imgrefurl=https%3A%2F%2Fdigitaltrafficace.com%2Fare-you-embarrassed-to-tell-people-what-you-do%2F&tbnid=hhkVAVl45AMvYM&vet=12ahUKEwi888vensL9AhX-licCHTysD4MQMyhnegUIARDKAQ..i&docid=oKDtcYGnxGsJHM&w=800&h=531&itg=1&q=embarrassed%20man%20sitting%20in%20from%20of%20a%20computer&ved=2ahUKEwi888vensL9AhX-licCHTysD4MQMyhnegUIARDKAQ)
+![Bob](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmzsi6RWNZ4bQ1sftHI4s-SFRxjzpVcJpF1g&usqp=CAU)
 
 ## Root cause and resolution
 
