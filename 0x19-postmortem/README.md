@@ -20,7 +20,7 @@ Root cause: Failed installation of Nginx on the web server due to a missing depe
 - 1:00 PM: The web server was finally back online, and Bob was left feeling a little embarrassed.
 
 ### This is Bob after the issue was resolved :)
-![Bob](https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F623446482%2Fphoto%2Fboss-scolding-an-employee.jpg%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3DtnXntpc2fPBB3UHWHKpBaxbQR5Ce1sUoq7YdcDnddxE%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fembarrassed-man-computer&tbnid=a2aDURDTRJW9cM&vet=12ahUKEwi888vensL9AhX-licCHTysD4MQMygjegUIARCrAg..i&docid=14icPX6xHEQoQM&w=612&h=408&q=embarrassed%20man%20sitting%20in%20from%20of%20a%20computer&ved=2ahUKEwi888vensL9AhX-licCHTysD4MQMygjegUIARCrAg)
+![Bob](https://www.google.com/imgres?imgurl=https%3A%2F%2Fdigitaltrafficace.com%2Fwp-content%2Fuploads%2F2018%2F06%2Fembarrassed-Depositphotos_800x531.jpg&imgrefurl=https%3A%2F%2Fdigitaltrafficace.com%2Fare-you-embarrassed-to-tell-people-what-you-do%2F&tbnid=hhkVAVl45AMvYM&vet=12ahUKEwi888vensL9AhX-licCHTysD4MQMyhnegUIARDKAQ..i&docid=oKDtcYGnxGsJHM&w=800&h=531&itg=1&q=embarrassed%20man%20sitting%20in%20from%20of%20a%20computer&ved=2ahUKEwi888vensL9AhX-licCHTysD4MQMyhnegUIARDKAQ)
 
 ## Root cause and resolution
 
