@@ -3,6 +3,7 @@
 ## Issue Summary
 
 Duration: 2 hours, 11:00 AM to 1:00 PM (UTC-5)
+
 Impact: The web server went on strike and took an unscheduled break, leaving 100% of users unable to access the website.
 
 Root cause: Failed installation of Nginx on the web server due to a missing dependency.
