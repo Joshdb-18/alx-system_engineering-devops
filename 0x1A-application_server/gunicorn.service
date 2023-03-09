@@ -1,0 +1,19 @@
+[Unit]
+Description=Airbnb Gunicorn Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/web_dynamic
+ExecStart=/home/ubuntu/.local/bin/gunicorn -w 3 -b 0.0.0.0:5003 2-hbnb:app
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=hbnb
+Environment=PYTHONPATH=/home/ubuntu/AirBnB_clone_v4
+Environment=APP_CONFIG_FILE=/home/ubuntu/AirBnB_clone_v4/web_dynamic/config.py
+Environment=FLASK_APP=2-hbnb.py
+Environment=FLASK_ENV=production
+
+[Install]
+WantedBy=multi-user.target
