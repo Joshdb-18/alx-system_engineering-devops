@@ -1,4 +1,20 @@
 #!/usr/bin/env bash
 # Gracefully reloads Gunicorn.
 
-sudo systemctl reload gunicorn.service > /dev/null 2>&1
+# sudo systemctl reload gunicorn.service > /dev/null 2>&1
+pid_file=$(find /var/run/ -name 'gunicorn.pid' 2>/dev/null)
+
+# Check if the pid file exists
+if [ -n "$pid_file" ]; then
+    # Reload Gunicorn in a graceful way
+    kill -s HUP "$(cat "$pid_file")"
+
+    # Wait for a few seconds
+    sleep 5
+
+    # Check if all workers have been renewed
+    if ! kill -s 0 "$(cat "$pid_file")"; then
+        # Notify the master Gunicorn that all workers have been renewed
+        kill -s USR2 "$(cat "$pid_file")"
+    fi
+fi
