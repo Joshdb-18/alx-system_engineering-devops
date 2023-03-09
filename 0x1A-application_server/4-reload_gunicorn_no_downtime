@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 # Gracefully reloads Gunicorn.
 
-# Find the process ID of the Gunicorn master process
-MASTER_PID=$(ps aux | pgrep '[g]unicorn' | awk '{print $2}')
+GUNICORN_PID=$(pgrep gunicorn)
 
-# Reload Gunicorn in a graceful way
-kill -HUP "$MASTER_PID"
-
+# If Gunicorn is running, gracefully reload it
+if [ -n "$GUNICORN_PID" ]; then
+  echo "Reloading Gunicorn gracefully"
+  kill -HUP "$GUNICORN_PID"
+else
+  echo "Gunicorn is not running"
+fi
